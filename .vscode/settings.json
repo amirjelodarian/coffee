@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:coffee}/database/database.sqlite",
+            "name": "coffee"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

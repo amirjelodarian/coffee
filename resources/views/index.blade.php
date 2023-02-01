@@ -1,32 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Tooplate">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
-
-    <title>Earth - Free HTML5 Bootstrap Theme</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="/css/fontawesome.css">
-    <link rel="stylesheet" href="/css/tooplate-main.css">
-    <link rel="stylesheet" href="/css/owl.css">
-
-  </head>
-<!--
-Tooplate 2113 Earth
-https://www.tooplate.com/view/2113-earth
--->
-  <body>
-
+@extends('layouts.app')
+@section('body')
     <div class="sequence">
 
       <div class="seq-preloader">
@@ -35,17 +8,28 @@ https://www.tooplate.com/view/2113-earth
 
     </div>
 
-        <div class="logo">
-            <h1>Coffee</h1>
-        </div>
-        <nav class="menu">
-          <ul>
+    <div class="logo">
+        <h1 id="coffee-text">
+            @auth
+                 ;D
+            @else
+                Coffee
+            @endauth
+        </h1>
+    </div>
+    <nav class="menu">
+        <ul>
             <li><a href="#1"><img src="/images/icon-1.png" alt=""> <em>خانه</em></a></li>
             <li><a href="#2"><img src="/images/icon-4.png" alt=""> <em>انتقاد و پیشنهاد</em></a></li>
-          </ul>
-        </nav>
-
+        </ul>
+    </nav>
+    <nav class="negar-nav">
+        <a href="#3">
+            <p>Negar</p>
+        </a>
+    </nav>
         <div class="slides">
+
           <div class="slide" id="1">
             <div id="slider-wrapper">
                 <div id="image-slider">
@@ -72,75 +56,34 @@ https://www.tooplate.com/view/2113-earth
 
                   </ul>
                 </div>
-                <!-- <div id="thumbnail">
-                  <ul>
-                    <li class="active"><img src="assets/images/thumb-01.jpg" alt="کافه نگار" /></li>
-                    <li><img src="assets/images/thumb-02.jpg" alt="Meeting" /></li>
-                    <li><img src="assets/images/thumb-03.jpg" alt="Smart" /></li>
-                  </ul>
-                </div> -->
-              </div>
-        </div>
+            </div>
+          </div>
 
-        <div class="slide" id="2">
+          <div class="slide" id="2">
             <div class="content fourth-content">
                 <div class="container-fluid">
-                    <form id="contact" action="{{ route('survey-store') }}" method="post">
-                        @csrf
-                        <div class="row">
-                          <div class="col-md-12">
-                            <h2>انتقاد و پیشنهاد</h2>
-                          </div>
-                          <div class="col-md-3"></div>
-                          <div class="col-md-6">
-                            <fieldset>
-                              <input name="name" type="text" class="form-control" id="name" placeholder="نام دلخواه" >
-                            </fieldset>
-                          </div>
-                          <div class="col-md-3"></div>
-                          <div class="col-md-12">
-                            <fieldset>
-                              <textarea name="message" rows="6" class="form-control" id="message" placeholder="انتقاد یا پیشنهاد خود را بنویسید..." required=""></textarea>
-                            </fieldset>
-                          </div>
-                          <div class="col-md-12">
-                            <fieldset>
-                              <button type="button" id="form-submit" class="button">تایید</button>
-                            </fieldset>
-                        </div>
-                    </form>
+                    @include('survey.form')
                 </div>
             </div>
-        </div>
+          </div>
     </div>
 
+          <div class="slide" id="3">
+            <div class="content fourth-content">
+                <div class="container-fluid" >
+                    <div class="row">
+                        @include('auth.auth')
+                    </div>
+                </div>
+            </div>
+          </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.bundle.min.js"></script>
+    </div>
 
-
-    <!-- Additional Scripts -->
-    <script src="/js/owl.js"></script>
-    <script src="/js/accordations.js"></script>
-    <script src="/js/main.js"></script>
-
+@endsection
+@section('footer')
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#form-submit').click(function(){
-                $.ajax({
-                    method: "POST",
-                    url: "{{ route('survey-store') }}",
-                    data: {
-                        _token: "{{ csrf_token() }}",
-                        name: $('#name').val(),
-                        message:  $('#message').val()
-                    },
-                    success: function (data){
-                        window.alert('با موفقیت ارسال شد ;)');
-                    },
-                });
-            });
             // navigation click actions
             $('.scroll-link').on('click', function(event){
                 event.preventDefault();
@@ -175,6 +118,4 @@ https://www.tooplate.com/view/2113-earth
             };
         }
     </script>
-
-  </body>
-</html>
+@endsection

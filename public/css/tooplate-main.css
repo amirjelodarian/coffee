@@ -250,8 +250,6 @@ nav a, nav a:visited, nav a:active {
 nav a {
 	text-decoration: none!important;
 	display: inline-block;
-	width: 140px;
-	padding: 15px 0px;
 	position: relative;
 	z-index: 0;
 	transition: all .5s;
@@ -270,26 +268,26 @@ nav a::before {
   z-index: -1;
 }
 .logo {
-	margin-top: 0px;
-  top: 0;
-  left: 0;
-  z-index: 999999;
-  position: fixed;
- 	display: inline-block;
-  text-align: center;
-	background-color: #faf5b2;
-	height: 15%;
-	width: 15%;
+	margin-top: 0px !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 999999 !important;
+  position: fixed !important;
+ 	display: inline-block !important;
+  text-align: center !important;
+	background-color: #faf5b2 !important;
+	height: 15% !important;
+	width: 15% !important;
 }
 .logo h1 {
-  font-size: 24px;
-  text-transform: uppercase;
-  font-weight: 900;
-  color: #111;
-  top: 50%;
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  font-size: 20px !important;
+  text-transform: uppercase !important;
+  font-weight: 900 !important;
+  color: #111 !important;
+  top: 35% !important;
+  left: 50% !important;
+  position: absolute !important;
+  transform: translate(-50%, -50%) !important;
 }
 .slides {
   width: 500vw;
@@ -334,9 +332,9 @@ nav a::before {
   background-position: fixed;
 }
 
-.slides .slide:nth-child(2) {
+/* .slides .slide:nth-child(2) {
 
-}
+} */
 
 
 /* Slide 1 Stlye */
@@ -355,21 +353,15 @@ nav a::before {
   justify-content: center;
 }
 #image-slider ul {
-  margin-bottom: 0;
-  width: 100%;
-  text-align: -webkit-right;
-  text-align: right;
-  padding: 10px;
-  position: absolute;
-  justify-content: right;
-  list-style: none;
-  bottom: 0;
-  right: 25px;
+    position: absolute;
+    list-style: none;
+    top: 67%;
 }
 #image-slider ul li {
   left: 100%;
   width: 100%;
   height:100%;
+  padding-top: 10px;
 }
 #image-slider ul li {
   background-repeat: no-repeat;
@@ -728,10 +720,9 @@ nav a::before {
   }
   .menu ul li em {
     /* display: none; */
-    font-size: 9px;
-    line-height: 16px;
+    font-size: 8px;
+    line-height: 9px;
     width: 64px;
-    padding-top: 4px;
   }
   .menu a {
   	text-align: center;
@@ -815,6 +806,7 @@ nav a::before {
   }
 
 }
+
 @media screen and (min-width: 568px) and (max-width: 768px){
   .logo{
     height: 100px !important;
@@ -825,20 +817,73 @@ nav a::before {
   }
 }
 @media screen and (max-width: 567px){
+    nav ul{
+        top: 37px;
+    }
+    .menu{
+        height: 79px;
+    }
   .logo{
-    height: 100px !important;
-    width: 85px;
+    height: 80px !important;
+    width: 85px !important;
   }
   .logo h1{
-    transform: rotate(90deg);
-    font-size: 18px;
-    top: 37px;
-    left: 3px;
+    font-size: 17px !important;
+    top: 31px !important;
   }
+  .negar-nav{
+    font-size: 13px !important;
+    padding-top: 27px;
+    top: 21px;
+  }
+    .coffee{
+        width: 40vh;
+        height: 40vh;
+        top: 27vh;
+    }
+    .btn-menu{
+        font-size: 12px !important;
+        border-radius: 6.8px !important;
+        padding: 9px !important;
+    }
+    .btn-survey-nav {
+        margin-left: 0px !important;
+        bottom: 28px !important;
+        padding-right: 0px !important;
+    }
+}
+@media screen and (min-width: 568px){
+    .negar-nav{
+        top: 8.5% !important;
+    }
+    .btn-menu{
+        font-size: 12px !important;
+        border-radius: 6.8px !important;
+        padding: 9px !important;
+    }
+    .list{
+        grid-auto-rows: 80px 80px !important;
+        grid-auto-columns: minmax(120px,159px) !important;
+        text-align: right;
+    }
+    #image-slider ul {
+        right: 4%;
+        top: 70%;
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1012px) {
+    .menu a{
+        padding: 5px 24px 5px 24px;
+    }
+}
+@media screen and (min-width: 1013px) {
+    .menu a{
+        padding: 8px 30px 8px 30px;
+    }
 }
 .list{
   display: grid;
-  grid-auto-rows: 80px 80px;
+  grid-auto-rows: 94px 80px;
   grid-auto-columns: minmax(120px,250px);
 }
 .list li{
@@ -854,9 +899,9 @@ nav a::before {
   height: auto;
   width: auto;
   font-size: inherit;
-  margin-left: 0px !important;
+  margin-left: 0px;
   padding-right: 98px;
-  bottom: 13px !important;
+  bottom: 13px;
 }
 .btn-survey-nav img{
   width: 25px;
@@ -866,6 +911,22 @@ nav a::before {
   width: 30px;
   height: 30px;
 }
-.btn-survey-nav a{
-  margin-left: 0px !important;
+
+.negar-nav{
+    background-color: transparent;
+    font-weight: bold;
+    position: absolute;
+    z-index: 999999;
+    height: 20px;
 }
+.negar-nav a{
+    background-color: transparent;
+    width: 85px;
+    font-weight: bold;
+    color: palevioletred !important;
+}
+.negar-nav a.active{
+    background-color: transparent;
+    color: rgba(0,0,0,0.8) !important;
+}
+

@@ -9,7 +9,6 @@ use Illuminate\Http\Response;
 
 class SurveyController extends Controller
 {
-
     public function store(SurveyFormRequest $request)
     {
         Survey::create([
@@ -19,4 +18,14 @@ class SurveyController extends Controller
 
         return response()->json('با موفقیت ثبت شد',Response::HTTP_OK);
     }
+
+    public function destroy(Survey $survey)
+    {
+        $survey->delete();
+
+        return response()->json('با موفقیت پاک شد',Response::HTTP_OK);
+    }
+
+
+
 }
